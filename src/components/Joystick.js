@@ -61,7 +61,7 @@ const JoystickHandle = styled.div`
 const Joystick = ({ type, position, movementRef, rotationRef }) => {
 	const handleRef = useRef(null);
 	const containerRef = useRef(null);
-	const radius = 80; // Radius of the joystick container
+	const radius = 60; // Radius of the joystick container
 
 	const handlePointerMove = (e) => {
 		if (!e.buttons) return;

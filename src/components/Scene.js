@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useTexture } from "@react-three/drei";
-import * as THREE from "three"; // Import Three.js explicitly
 
 const Scene = ({ modelPath, movement, rotation }) => {
 	const cameraRef = useRef();
@@ -25,15 +24,14 @@ const Scene = ({ modelPath, movement, rotation }) => {
 
 	return (
 		<>
-			{/* Textured Sky */}
-			<TexturedSky />
-
-			{/* Textured Grass Floor */}
+			{/* Textured Ground */}
 			<TexturedGround />
 
+			{/* Sunlight */}
+			<Sunlight />
+
 			{/* Lighting */}
-			<hemisphereLight intensity={0.35} groundColor="green" />
-			<directionalLight position={[10, 10, 5]} intensity={0.8} />
+			<hemisphereLight intensity={0.35} groundColor="white" />
 
 			{/* Dynamic Model */}
 			{modelPath && <Model modelPath={modelPath} />}
@@ -41,25 +39,40 @@ const Scene = ({ modelPath, movement, rotation }) => {
 	);
 };
 
-const TexturedSky = () => {
-	const texture = useTexture("/sky.jpg");
-
-	return (
-		<mesh>
-			<sphereGeometry args={[450, 64, 64]} />
-			<meshBasicMaterial map={texture} side={THREE.BackSide} />
-		</mesh>
-	);
-};
-
 const TexturedGround = () => {
-	const texture = useTexture("/grass.jpg");
+	// Load texture for the ground
+	const texture = useTexture("/scene.jpg");
 
 	return (
 		<mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -15, 0]}>
 			<planeGeometry args={[800, 800]} />
 			<meshStandardMaterial map={texture} />
 		</mesh>
+	);
+};
+
+const Sunlight = () => {
+	const sunlightRef = useRef();
+
+	return (
+		<>
+			{/* Directional Light for Sun */}
+			<directionalLight
+				ref={sunlightRef}
+				position={[10, 50, 10]} // Position of the sun
+				intensity={1.5} // Brightness of the sun
+				castShadow
+				shadow-mapSize-width={2048}
+				shadow-mapSize-height={2048}
+				color={"#ffffff"} // White sunlight
+			/>
+
+			{/* Visual Representation of the Sun */}
+			<mesh position={[10, 50, 10]}>
+				<sphereGeometry args={[2, 32, 32]} />
+				<meshBasicMaterial color="yellow" />
+			</mesh>
+		</>
 	);
 };
 
