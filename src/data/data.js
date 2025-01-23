@@ -2,7 +2,7 @@ export const data = [
 	{
 		uuid: "123d0123-dsda-23dffd",
 		model: "/compressed.glb", // Point to public/assets/twisted.glb
-		title: "Name: (Twisted Tree Model)",
+		title: "Twisted",
 		description: "A description related to the specific tree if you want.",
 		data: {
 			soil_moisture: "32%",

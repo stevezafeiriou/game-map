@@ -3,10 +3,13 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useTexture } from "@react-three/drei";
 
+import * as THREE from "three";
+
 const Scene = ({ modelPath, movement, rotation }) => {
 	const cameraRef = useRef();
 
 	useFrame((state) => {
+		// Access refs through props
 		const { forward, backward, left, right } = movement.current;
 		const { x, y } = rotation.current;
 
@@ -40,13 +43,27 @@ const Scene = ({ modelPath, movement, rotation }) => {
 };
 
 const TexturedGround = () => {
-	// Load texture for the ground
 	const texture = useTexture("/scene.jpg");
+
+	// Texture configuration
+	texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
+	texture.repeat.set(1, 1); // Increased tiling for better pattern density
+	texture.anisotropy = 16; // Improves texture sharpness
+	texture.minFilter = THREE.LinearMipmapLinearFilter; // Better mipmapping
+	texture.magFilter = THREE.NearestFilter; // Crisper pixels
 
 	return (
 		<mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -15, 0]}>
 			<planeGeometry args={[800, 800]} />
-			<meshStandardMaterial map={texture} />
+			<meshPhongMaterial
+				map={texture}
+				color="white"
+				shininess={50}
+				specular="#ffffff"
+				emissive="white"
+				emissiveIntensity={0.02}
+			/>
 		</mesh>
 	);
 };

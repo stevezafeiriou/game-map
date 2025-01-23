@@ -42,7 +42,10 @@ const JoystickHandle = styled.div`
 	max-width: 40px;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%)
+		${({ $offset }) =>
+			$offset ? `translate(${$offset.x}px, ${$offset.y}px)` : ""};
+	transition: transform 0.1s ease-out; /* Smooth movement */
 	background: rgba(255, 255, 255, 0.65); /* Semi-transparent white */
 	backdrop-filter: blur(15px); /* Stronger blur for the handle */
 
@@ -70,31 +73,33 @@ const Joystick = ({ type, position, movementRef, rotationRef }) => {
 		const x = e.clientX - rect.left - rect.width / 2;
 		const y = e.clientY - rect.top - rect.height / 2;
 
-		const distance = Math.min(Math.sqrt(x * x + y * y), radius); // Restrict handle within the joystick circle
+		const distance = Math.min(Math.sqrt(x * x + y * y), radius);
 		const angle = Math.atan2(y, x);
 
 		const newX = Math.cos(angle) * distance;
 		const newY = Math.sin(angle) * distance;
 
-		handleRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
+		// Update transform with centered base position
+		handleRef.current.style.transform = `translate(-50%, -50%) translate(${newX}px, ${newY}px)`;
 
-		// Normalize joystick values (-1 to 1)
 		const normalizedX = newX / radius;
 		const normalizedY = newY / radius;
 
 		if (type === "movement" && movementRef) {
-			movementRef.current.forward = normalizedY > 0 ? normalizedY : 0;
-			movementRef.current.backward = normalizedY < 0 ? -normalizedY : 0;
-			movementRef.current.left = normalizedX < 0 ? -normalizedX : 0;
-			movementRef.current.right = normalizedX > 0 ? normalizedX : 0;
+			// Movement controls (left joystick)
+			movementRef.current.forward = Math.max(-normalizedY, 0); // Up movement
+			movementRef.current.backward = Math.max(normalizedY, 0); // Down movement
+			movementRef.current.left = Math.max(-normalizedX, 0); // Left movement
+			movementRef.current.right = Math.max(normalizedX, 0); // Right movement
 		} else if (type === "rotation" && rotationRef) {
-			rotationRef.current.x = normalizedY; // Up and Down for moving camera closer or farther
-			rotationRef.current.y = normalizedX; // Left and Right for rotating camera
+			// Camera controls (right joystick)
+			rotationRef.current.x = -normalizedY * 0.05; // Vertical look (inverted)
+			rotationRef.current.y = -normalizedX * 0.05; // Horizontal look
 		}
 	};
 
 	const handlePointerUp = () => {
-		handleRef.current.style.transform = `translate(0px, 0px)`;
+		handleRef.current.style.transform = `translate(-50%, -50%)`;
 
 		if (type === "movement" && movementRef) {
 			movementRef.current.forward = 0;
