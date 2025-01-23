@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# Xylophobia-Dendrophylia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+![React](https://img.shields.io/badge/React-18.2-blue)
+![Three.js](https://img.shields.io/badge/Three.js-r148-green)
 
-## Available Scripts
+An experimental 3D browser environment bridging digital art and ecological awareness through interactive tree models. Built with React and Three.js.
 
-In the project directory, you can run:
+![Demo Screenshot](public/screenshot.jpg)
 
-### `npm start`
+## 🌳 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Xylophobia-Dendrophylia is an immersive web experience that transforms photogrammetric scans of urban trees into an infinite virtual forest. Part of the _Money Trees_ ecosystem (2024), this project enables:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Interactive exploration of 3D tree models
+- Real-world ecological data integration via Google's i-tree
+- Mobile-responsive environment with game-like controls
 
-### `npm test`
+The project serves as both an artistic installation and educational tool, encouraging users to reflect on environmental stewardship through a blend of digital/physical interactions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+### Core Components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **3D Environment**  
+  Rendered with Three.js and React Three Fiber
+- **Dynamic Models**  
+  Photogrammetric scans of London's urban trees
+- **Real-Time Data**  
+  Ecological signals from physical tree counterparts
+- **Mobile First**  
+  Optimized touch controls and responsive UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Interaction System
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Component         | Description                          |
+| ----------------- | ------------------------------------ |
+| Joystick Controls | Dual virtual joysticks for movement  |
+| Model Selection   | Community-voted tree model ranking   |
+| QR Code Access    | Physical/digital tree linking        |
+| Info System       | Educational popups with project docs |
 
-### `npm run eject`
+## 🛠️ Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Frontend**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+React 18          - Component architecture
+Three.js/r3f      - 3D rendering pipeline
+Styled-Components - CSS-in-JS styling
+React Icons       - UI icons
+React Router      - Navigation system
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Data**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```text
+i-tree API       - Ecological metrics
+GLTF/GLB         - 3D model format
+Photogrammetry   - Tree scanning technique
+```
 
-## Learn More
+## 🚀 Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone repository
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/stevezafeiriou/xylophobia-dendrophylia.git
+cd xylophobia-dendrophylia
+```
 
-### Code Splitting
+2. Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+3. Start development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+## 📖 Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Basic Interaction
 
-### Advanced Configuration
+1. **Model Selection**
+   Choose from community-ranked tree models
+2. **Movement**
+   Left joystick - Camera position
+   Right joystick - Camera rotation
+3. **Info Access**
+   Click (i) icon for project documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Advanced Features
 
-### Deployment
+```bash
+# Environment Variables
+REACT_APP_ITREE_KEY=your_api_key
+REACT_APP_MAP_ZOOM=1.5
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🎨 Project Structure
 
-### `npm run build` fails to minify
+```text
+src/
+├── components/       # React components
+│   ├── Scene/        # Three.js environment
+│   ├── Joystick/     # Control system
+│   └── Popup/        # Info modal system
+├── data/             # Model metadata
+├── styles/           # Global styling
+└── public/           # Static assets
+    └── models/       # GLTF/GLB files
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🌱 Contributing
+
+1. Fork the repository
+2. Create feature branch
+
+```bash
+git checkout -b feature/new-tree-model
+```
+
+3. Commit changes
+
+```bash
+git commit -m 'Add: New oak tree model'
+```
+
+4. Push to branch
+
+```bash
+git push origin feature/new-tree-model
+```
+
+5. Open pull request
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE) for details
+
+## 🌍 Acknowledgements
+
+- **Tree Scans**
+  Urban Forestry London
+- **3D Library**
+  Three.js Community
+- **Education Partner**
+  Royal Botanic Gardens, Kew

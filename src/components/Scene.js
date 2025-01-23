@@ -14,15 +14,15 @@ const Scene = ({ modelPath, movement, rotation }) => {
 		const { x, y } = rotation.current;
 
 		// Camera movement
-		const speed = 0.1;
+		const speed = 0.3;
 		if (forward) state.camera.position.z -= forward * speed;
 		if (backward) state.camera.position.z += backward * speed;
 		if (left) state.camera.position.x -= left * speed;
 		if (right) state.camera.position.x += right * speed;
 
 		// Camera rotation
-		state.camera.rotation.x += x * 0.02;
-		state.camera.rotation.y += y * 0.02;
+		state.camera.rotation.x += x * 0.15;
+		state.camera.rotation.y += y * 0.15;
 	});
 
 	return (
@@ -85,10 +85,10 @@ const Sunlight = () => {
 			/>
 
 			{/* Visual Representation of the Sun */}
-			<mesh position={[10, 50, 10]}>
+			{/* <mesh position={[10, 50, 10]}>
 				<sphereGeometry args={[2, 32, 32]} />
 				<meshBasicMaterial color="yellow" />
-			</mesh>
+			</mesh> */}
 		</>
 	);
 };
