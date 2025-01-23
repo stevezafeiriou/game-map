@@ -6,7 +6,7 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 const Scene = ({ modelPath, movement, rotation }) => {
-	const cameraRef = useRef();
+	
 
 	useFrame((state) => {
 		// Access refs through props
