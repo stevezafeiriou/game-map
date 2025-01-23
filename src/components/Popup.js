@@ -41,7 +41,7 @@ const InfoPopup = () => {
 
 						{activeTab === "info" ? (
 							<InformationContainer>
-								<h2>Xylophobia - Dendrophylia</h2>
+								<h2>Xylophobia-Dendrophilia</h2>
 								<p>
 									Xylophobia-Dendrophilia is an experimental in-browser
 									mini-game map that expands upon Money Trees, a website
