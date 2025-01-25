@@ -1,6 +1,8 @@
 // components/Joystick.js
 import React, { useRef } from "react";
 import styled from "styled-components";
+import camIcon from "../assets/cam.png";
+import navIcon from "../assets/nav.png";
 
 const JoystickContainer = styled.div`
 	position: absolute;
@@ -21,7 +23,7 @@ const JoystickContainer = styled.div`
 
 	/* Adding the background image */
 	background-image: url(${(props) =>
-		props.type === "movement" ? "/nav.png" : "/cam.png"});
+		props.type === "movement" ? camIcon : navIcon});
 	background-size: cover;
 	background-position: center center;
 

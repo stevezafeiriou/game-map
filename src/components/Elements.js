@@ -74,28 +74,21 @@ export const ModalOverlay = styled.div`
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.9);
 	z-index: 10000;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	overflow: hidden;
 `;
 
 export const ModalContent = styled.div`
-	background: rgba(0, 0, 0, 0.9);
-	border-radius: 16px;
-	padding: 20px;
-	width: 90%;
-	max-width: 500px;
-	max-height: 80vh; // Add max height
-	color: white;
-	box-shadow: 0 0 15px rgba(186, 12, 0, 0.5);
-	overflow-y: auto; // Enable vertical scrolling
-	-webkit-overflow-scrolling: touch; // Smooth mobile scrolling
+	position: relative;
+	padding: 50px 15px 15px;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 
 	@media (max-width: 768px) {
-		padding: 15px;
-		max-height: 90vh; // More height on mobile
+		padding: 40px 10px 10px;
 	}
 `;
 
@@ -134,6 +127,7 @@ export const SocialLinks = styled.div`
 	display: flex;
 	gap: 15px;
 	justify-content: center;
+
 	margin-top: 20px;
 	flex-wrap: wrap; // Allow wrapping on mobile
 
@@ -174,29 +168,83 @@ export const InfoButton = styled.button`
 	}
 `;
 
+// Add these to your existing Elements.js
+export const CloseButton = styled.button`
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: transparent;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 5px;
+	z-index: 100;
+
+	&:hover {
+		color: #990d00;
+	}
+`;
+
 export const InformationContainer = styled.div`
 	display: flex;
-	flex-direction: column;
-	margin: 10px;
-	overflow-y: auto; // Nested scrolling area
+	align-items: flex-start;
+	gap: 30px;
+	margin-top: 20px;
+	height: calc(100% - 80px);
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		height: auto;
+	}
+`;
+
+export const InfoText = styled.div`
+	flex: 1;
+	overflow-y: auto;
+	padding-right: 20px;
 
 	h2 {
-		margin-bottom: 10px;
+		color: #fff;
 		font-size: 1.5rem;
-
-		@media (max-width: 768px) {
-			font-size: 1.3rem;
-		}
+		margin-bottom: 20px;
+		font-family: "GothicPixels", sans-serif;
 	}
 
 	p {
-		margin-bottom: 10px;
-		line-height: 1.5;
+		color: #fff;
 		font-size: 1rem;
+		margin-bottom: 20px;
+		line-height: 1.5;
+		text-align: justify;
+	}
 
-		@media (max-width: 768px) {
-			font-size: 0.9rem;
-			line-height: 1.4;
-		}
+	@media (max-width: 768px) {
+		padding-right: 0;
+		order: 2;
+	}
+`;
+
+export const VideoContainer = styled.div`
+	flex: 1;
+	min-height: 300px;
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	height: 0;
+	overflow: hidden;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+
+	@media (max-width: 768px) {
+		order: 1;
+		width: 100%;
+		min-height: 200px;
+		padding-bottom: 75%; /* 4:3 for mobile */
 	}
 `;

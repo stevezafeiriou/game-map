@@ -2,12 +2,10 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useTexture } from "@react-three/drei";
-
 import * as THREE from "three";
+import sceneIcon from "../assets/scene.jpg";
 
 const Scene = ({ modelPath, movement, rotation }) => {
-	
-
 	useFrame((state) => {
 		// Access refs through props
 		const { forward, backward, left, right } = movement.current;
@@ -43,7 +41,7 @@ const Scene = ({ modelPath, movement, rotation }) => {
 };
 
 const TexturedGround = () => {
-	const texture = useTexture("/scene.jpg");
+	const texture = useTexture(sceneIcon);
 
 	// Texture configuration
 	texture.wrapS = THREE.RepeatWrapping;
@@ -95,7 +93,7 @@ const Sunlight = () => {
 
 const Model = ({ modelPath }) => {
 	const { scene } = useGLTF(modelPath);
-	return <primitive object={scene} scale={[15, 15, 15]} position={[0, 9, 0]} />;
+	return <primitive object={scene} scale={[15, 15, 15]} position={[0, 2, 0]} />;
 };
 
 export default Scene;
