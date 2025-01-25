@@ -43,12 +43,10 @@ const InfoPopup = () => {
 							<InformationContainer>
 								<h2>Xylophobia-Dendrophilia</h2>
 								<p>
-									Xylophobia-Dendrophilia is an experimental in-browser
-									mini-game map that expands upon Money Trees, a website
-									developed in 2024. Money Trees hosts digital tree assets in
-									which users can invest, allocating funds toward the
-									maintenance, care, and eventual replanting of the
-									corresponding physical tree if it is felled.
+									Xylophobia-Dendrophilia, a current WIP, constitutes a
+									web-based experimental game interface that expands Money
+									Trees—a 2024 digital platform hosting arboreal assets tied to
+									physical tree preservation.
 								</p>
 								<p>
 									By scanning a QR code associated with a particular tree, users
@@ -59,19 +57,27 @@ const InfoPopup = () => {
 									physical realms.
 								</p>
 								<p>
-									The core of this infinite game is a virtual forest derived
-									from 3D photogrammetric scans of urban trees in London.
-									Artistic representation is achieved by painting 2D UV map
-									textures obtained from these scans and re-mapping them onto
-									the 3D models, prompting users to reflect on their
-									relationship with the environment amid rapid ecological
-									change.
+									Users invest in virtual trees, with proceeds allocated to the
+									maintenance, care, and replanting of corresponding real-world
+									specimens. Upon scanning a tree-specific QR code, participants
+									access an interactive Three.js-generated map hosted via the
+									Glitch platform. This dynamic environment synthesises
+									real-time ecological data from Google’s i-Tree API to produce
+									a continuously evolving arboreal landscape. The central
+									component of this procedurally generated environment is a
+									virtual landscape comprising 3D photogrammetric scans of
+									London’s urban trees. Artistic development involves applying
+									2D UV map textures derived from photogrammetric scans to 3D
+									models, creating a stylised interplay between digital
+									abstraction and ecological fidelity.
 								</p>
 								<p>
-									As an ongoing project, the work will integrate additional
-									artist-generated and collaboratively produced models developed
-									through youth workshops prior to its exhibition as an
-									immersive installation.
+									Through this framework, users are invited to contemplate
+									human-environment interdependencies within contexts of
+									accelerated environmental transformation. As an ongoing
+									project, the work will integrate additional artist-generated
+									and collaboratively produced models developed through youth
+									workshops before its exhibition as an immersive installation.
 								</p>
 								<hr style={{ margin: "20px 0", borderColor: "#333" }} />
 								<SocialLinks>
