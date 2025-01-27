@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -49,11 +49,22 @@ const HomePage = () => {
 
 const ScenePage = () => {
 	const { uuid } = useParams();
-	const modelData = data.find((item) => item.uuid === uuid);
+	const [isValidUUID, setIsValidUUID] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const movementRef = useRef({ forward: 0, backward: 0, left: 0, right: 0 });
 	const rotationRef = useRef({ x: 0, y: 0 });
 
-	if (!modelData) return <Navigate to="/" replace />;
+	useEffect(() => {
+		// Check if UUID exists in data
+		const exists = data.some((item) => item.uuid === uuid);
+		setIsValidUUID(exists);
+		setLoading(false);
+	}, [uuid]);
+
+	if (loading) return <div>Loading...</div>;
+	if (!isValidUUID) return <Navigate to="/" replace />;
+
+	const modelData = data.find((item) => item.uuid === uuid);
 
 	return (
 		<AppContainer>
