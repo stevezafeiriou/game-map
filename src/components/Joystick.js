@@ -23,7 +23,7 @@ const JoystickContainer = styled.div`
 
 	/* Adding the background image */
 	background-image: url(${(props) =>
-		props.type === "movement" ? camIcon : navIcon});
+		props.type === "movement" ? navIcon : camIcon});
 	background-size: cover;
 	background-position: center center;
 

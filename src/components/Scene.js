@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useTexture } from "@react-three/drei";
+// import { EffectComposer, Pixelation } from "@react-three/postprocessing";
 import * as THREE from "three";
 import sceneIcon from "../assets/scene.jpg";
 
@@ -32,10 +33,17 @@ const Scene = ({ modelPath, movement, rotation }) => {
 			<Sunlight />
 
 			{/* Lighting */}
-			<hemisphereLight intensity={0.35} groundColor="white" />
+			<hemisphereLight intensity={0.835} groundColor="white" />
 
 			{/* Dynamic Model */}
 			{modelPath && <Model modelPath={modelPath} />}
+
+			{/* Post-processing effect */}
+			{/* <EffectComposer multisampling={0}>
+				<Pixelation
+					granularity={3} // Adjust this value (1-20) for different pixel sizes
+				/>
+			</EffectComposer> */}
 		</>
 	);
 };

@@ -32,18 +32,18 @@ const InfoPopup = () => {
 						</CloseButton>
 
 						<Tabs>
-							<TabButton
+							{/* <TabButton
 								active={activeTab === "info"}
 								onClick={() => setActiveTab("info")}
 							>
 								Information
-							</TabButton>
-							<TabButton
+							</TabButton> */}
+							{/* <TabButton
 								active={activeTab === "models"}
 								onClick={() => setActiveTab("models")}
 							>
 								Settings
-							</TabButton>
+							</TabButton> */}
 						</Tabs>
 
 						{activeTab === "info" ? (
@@ -87,8 +87,8 @@ const InfoPopup = () => {
 									<hr style={{ margin: "20px 0", borderColor: "#333" }} />
 									<SocialLinks>
 										<a href="https://money-trees.uk/">Money Trees</a>
-										<a href="https://rachymcewan.com/">Rachy</a>
-										<a href="https://stevezafeiriou.com/">Steve</a>
+										{/* <a href="https://rachymcewan.com/">Rachy</a>
+										<a href="https://stevezafeiriou.com/">Steve</a> */}
 									</SocialLinks>
 								</InfoText>
 								<VideoContainer>
@@ -101,9 +101,7 @@ const InfoPopup = () => {
 									/>
 								</VideoContainer>
 							</InformationContainer>
-						) : (
-							<ModelSelector />
-						)}
+						) : null}
 					</ModalContent>
 				</ModalOverlay>
 			)}
