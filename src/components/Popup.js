@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FiInfo, FiX } from "react-icons/fi";
-import ModelSelector from "./ModelSelector";
+// import ModelSelector from "./ModelSelector";
 import {
 	ModalOverlay,
 	ModalContent,
 	Tabs,
-	TabButton,
+	// TabButton,
 	SocialLinks,
 	InfoButton,
 	InformationContainer,
