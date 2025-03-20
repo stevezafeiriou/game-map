@@ -6,7 +6,8 @@ export const SelectModelContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 400px;
+	width: 100%;
+	margin-top: 60px;
 	padding: 20px;
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 16px;
@@ -57,7 +58,6 @@ export const LoadButton = styled.button`
 
 	&:hover {
 		background: #cc1100;
-		transform: scale(1.05);
 	}
 
 	&:disabled {
@@ -142,6 +142,15 @@ export const SocialLinks = styled.div`
 
 		&:hover {
 			color: #990d00;
+		}
+	}
+
+	p {
+		color: white;
+		font-size: 1rem;
+		margin-top: -3px;
+		@media (max-width: 480px) {
+			font-size: 0.8rem;
 		}
 	}
 `;
