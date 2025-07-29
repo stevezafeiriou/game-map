@@ -6,7 +6,7 @@
 
 An experimental 3D browser environment bridging digital art and ecological awareness through interactive tree models. Built with React and Three.js.
 
-![Demo Screenshot](public/screenshot.jpg)
+![Demo Screenshot](public/preview.jpg)
 
 ## 🌳 Overview
 
