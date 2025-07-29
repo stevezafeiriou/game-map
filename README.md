@@ -18,6 +18,8 @@ Xylophobia-Dendrophylia is an immersive web experience that transforms photogram
 
 The project serves as both an artistic installation and educational tool, encouraging users to reflect on environmental stewardship through a blend of digital/physical interactions.
 
+This project is the result of a collaborative effort by [Rachy Mcewan](https://rachymcewan.com/) and [Steve Zafeiriou](https://stevezafeiriou.com/).
+
 ## ✨ Features
 
 ### Core Components
