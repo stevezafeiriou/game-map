@@ -1,3 +1,12 @@
+/*
+ * Xylophobia - A Virtual Forest Experience
+ * All models are compressed using Draco compression.
+ * This file contains the data for the virtual forest, including tree models and their properties.
+ * Each tree has a unique UUID, model path, title, description, position in the scene.
+ * The data also includes environmental metrics like soil moisture, temperature, humidity, and CO2 levels.
+ * This data is used to render the scene and provide information about each tree. Data will replaced with real data in the future.
+ * The models are expected to be in the public directory of the React app.
+ */
 export const data = [
 	{
 		uuid: "mushy",

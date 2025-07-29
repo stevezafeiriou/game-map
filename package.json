@@ -1,5 +1,6 @@
 {
 	"name": "xylophobia-dendrophylia",
+	"author": "Steve Zafeiriou",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

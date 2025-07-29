@@ -1,4 +1,3 @@
-// components/Joystick.js
 import React, { useRef } from "react";
 import styled from "styled-components";
 import camIcon from "../assets/cam.png";

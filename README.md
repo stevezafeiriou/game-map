@@ -138,15 +138,10 @@ git push origin feature/new-tree-model
 
 5. Open pull request
 
+## To Do
+
+1. Fix the joystick controls (the camera movement is currently inverted).
+
 ## 📜 License
 
 MIT License - See [LICENSE](LICENSE) for details
-
-## 🌍 Acknowledgements
-
-- **Tree Scans**
-  Urban Forestry London
-- **3D Library**
-  Three.js Community
-- **Education Partner**
-  Royal Botanic Gardens, Kew
